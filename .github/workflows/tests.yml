@@ -617,11 +617,13 @@ jobs:
           echo "Install RelStorage" && \
           pip install -U coverage && \
           pip install -U "faulthandler; python_version == \"2.7\" and platform_python_implementation == \"CPython\"" && \
-
-          ls && \
-          ls dist &&\
-          cd dist && \
-          pip install -U "\"RelStorage-*.whl\"[test,all_tested_drivers]" && \
+          sudo apt-get install libpq-dev && \
+          pip install -U  "`ls dist/RelStorage-*.whl`[test,all_tested_drivers]" && \
+          
+          #ls && \
+          #ls dist &&\
+          #cd dist && \
+          #pip install -U "\"RelStorage-*.whl\"[test,all_tested_drivers]" && \
           
           unzip -n RelStorage-${{ matrix.python-version }}-linux_aarch64.whl -d src && \
           echo "Initialize Test Databases" && \

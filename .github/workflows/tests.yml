@@ -625,6 +625,7 @@ jobs:
           #cd dist && \
           #pip install -U "\"RelStorage-*.whl\"[test,all_tested_drivers]" && \
           
+          sudo apt-get install unzip -y && \
           unzip -n RelStorage-${{ matrix.python-version }}-linux_aarch64.whl -d src && \
           echo "Initialize Test Databases" && \
           sudo systemctl start mysql.service && \

@@ -617,7 +617,7 @@ jobs:
           echo "Install RelStorage" && \
           pip install -U coverage && \
           pip install -U "faulthandler; python_version == \"2.7\" and platform_python_implementation == \"CPython\"" && \
-          sudo apt-get install libpq-dev && \
+          sudo apt-get install libpq-dev -y && \
           pip install -U  "`ls dist/RelStorage-*.whl`[test,all_tested_drivers]" && \
           
           #ls && \

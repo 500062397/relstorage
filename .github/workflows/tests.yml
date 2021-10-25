@@ -627,7 +627,7 @@ jobs:
           #pip install -U "\"RelStorage-*.whl\"[test,all_tested_drivers]" && \
           
           sudo apt-get install unzip -y && \
-          unzip -n RelStorage-*.whl -d src && \
+          unzip -n dist/RelStorage-*.whl -d src && \
           echo "Initialize Test Databases" && \
           sudo systemctl start mysql.service && \
           echo "Configuring MySQL" && \

@@ -629,7 +629,12 @@ jobs:
           sudo apt-get install unzip -y && \
           unzip -n dist/RelStorage-*.whl -d src && \
           echo "Initialize Test Databases" && \
-          sudo systemctl start mysql.service && \
+          sudo systemctl unmask mysql.service && \
+          sudo service mysql.service start && \
+          sudo service mysql status && \
+          
+          #sudo systemctl start mysql.service && \
+          
           echo "Configuring MySQL" && \
           RELSTORAGETEST_MY_PW="--password=root" .travis/mysql.sh && \
           echo "Run tests and report coverage" && \

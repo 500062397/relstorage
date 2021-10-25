@@ -629,8 +629,9 @@ jobs:
           sudo apt-get install unzip -y && \
           unzip -n dist/RelStorage-*.whl -d src && \
           echo "Initialize Test Databases" && \
+          sudo systemctl unmask mysql && \
           sudo systemctl unmask mysql.service && \
-          sudo service mysql.service start && \
+          sudo service mysql start && \
           sudo service mysql status && \
           
           #sudo systemctl start mysql.service && \
